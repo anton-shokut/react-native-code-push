@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - rn-0.71
 
 jobs:
   test-android:

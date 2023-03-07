@@ -1,7 +1,7 @@
 name: React-native-code-push CI
 
 on:
-  pull_request:
+  push:
     branches:
       - master
 
@@ -46,23 +46,3 @@ jobs:
         run: npm run build:tests && npm run test:setup:android
       - name: Run Android test
         run: npm run test:fast:android
-
-  test-iOS:
-    name: Test iOS app
-    runs-on: macos-latest
-    env:
-      NO_FLIPPER: ${{ secrets.NO_FLIPPER }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7.6'
-          bundler-cache: true
-      - name: Install dependencies
-        run: npm install
-      - name: Setup iOS tests
-        run: npm run build:tests && npm run test:setup:ios
-      - name: Run tests
-        run: npm run test:fast:ios

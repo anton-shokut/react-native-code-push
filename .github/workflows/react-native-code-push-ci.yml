@@ -46,6 +46,6 @@ jobs:
       - name: Setup Android tests
         run: npm run build:tests && npm run test:setup:android
       - name: SIngle test
-        run: npm exec mocha --recursive bin/test --android --bail --fgrep  window.codePush.checkForUpdate.customKey.update
+        run: npm exec mocha --recursive bin/test --android --bail
       # - name: Run Android test
       #   run: npm run test:fast:android
